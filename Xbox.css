@@ -1,0 +1,106 @@
+ * {
+            --color1: #027331;
+            --color2: rgb(2, 54, 46);
+            --color3: #26642b;
+            --color4: #05C7F2;
+            --color5: #0558f2;
+            --color0: #000000;
+        }
+        
+        .body {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .bg-nintendo-red {
+            background-color: var(--color1);
+        }
+        
+        .bg-nintendo-dark {
+            background-color: var(--color2);
+        }
+        
+        .bg-nintendo-pink {
+            background-color: var(--color3);
+        }
+        
+        .bg-nintendo-blue {
+            background-color: var(--color4);
+        }
+        
+        .bg-nintendo-lightblue {
+            background-color: var(--color5);
+        }
+        
+        .text-nintendo-blue {
+            color: var(--color4);
+        }
+        
+        .btn-Xbox {
+            background-color: var(--color0);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        
+        .btn-Xbox:hover {
+            background-color: var(--color5);
+            color: white;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+        }
+        
+        .console-card {
+            background: linear-gradient(145deg, #014006, #02731e);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .console-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .navbar {
+            background-color: #003809f7 !important;
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--color5) !important;
+        }
+        
+        .retro-badge {
+            background-color: var(--color4);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .category-box {
+            background-color: rgba(5, 199, 242, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--color4);
+        }
