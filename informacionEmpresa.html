@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroOptica - Videojuegos Retro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --color-primary: #73020C;
+            --color-secondary: #D90467;
+            --color-accent: #05C7F2;
+            --color-dark: #1A1A2E;
+            --color-light: #F8F9FA;
+        }
+        
+        body {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background-color: var(--color-primary);
+        }
+        
+        .department-card {
+            background: linear-gradient(145deg, #2d2d42, #232338);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #363636;
+            height: 100%;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hr-color {
+            color: #FF6B6B;
+        }
+        
+        .finance-color {
+            color: #4ECDC4;
+        }
+        
+        .logistics-color {
+            color: #FFE66D;
+        }
+        
+        .marketing-color {
+            color: #D90467;
+        }
+        
+        .production-color {
+            color: #05C7F2;
+        }
+        
+        .btn-custom {
+            background-color: var(--color-secondary);
+            color: white;
+            border: none;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3') center/cover no-repeat;
+            padding: 100px 0;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-secondary);
+        }
+        
+        footer {
+            background-color: var(--color-primary);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-controller me-2"></i>Mirada Retro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hr">RRHH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#finance">Finanzas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#logistics">Logística</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#marketing">Marketing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#production">Producción</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Mirada Retro Games</h1>
+            <p class="lead">Revive la nostalgia de los videojuegos retro con nosotros</p>
+            <p>Nintendo, Xbox, PlayStation y más</p>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-5 section-title">Nuestras Áreas de Expertise</h2>
+        
+        <div class="row g-4">
+            <!-- Recursos Humanos -->
+            <div class="col-md-4" id="hr">
+                <div class="department-card p-4">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-people-fill display-4 hr-color"></i>
+                    </div>
+                    <h3 class="h4 mb-3 hr-color">Recursos Humanos</h3>
+                    <p class="mb-3">En RetroÓptica, valoramos a nuestro equipo por encima de todo. Nuestra cultura se basa en la pasión por los videojuegos retro.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 hr-color"></i>Oportunidades de crecimiento</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 hr-color"></i>Ambiente de trabajo inclusivo</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 hr-color"></i>Beneficios competitivos</li>
+                    </ul>
+                    <a href="#" class="btn btn-sm btn-custom mt-3">Trabaja con Nosotros</a>
+                </div>
+            </div>
+            
+            <!-- Finanzas -->
+            <div class="col-md-4" id="finance">
+                <div class="department-card p-4">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-graph-up display-4 finance-color"></i>
+                    </div>
+                    <h3 class="h4 mb-3 finance-color">Finanzas</h3>
+                    <p class="mb-3">Manejamos nuestras finanzas con transparencia para garantizar la sostenibilidad a largo plazo de nuestra empresa.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 finance-color"></i>Precios claros y sin sorpresas</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 finance-color"></i>Múltiples métodos de pago</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 finance-color"></i>Inversión constante en mejora</li>
+                    </ul>
+                    <a href="#" class="btn btn-sm btn-custom mt-3">Ver Informe Anual</a>
+                </div>
+            </div>
+            
+            <!-- Logística -->
+            <div class="col-md-4" id="logistics">
+                <div class="department-card p-4">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-truck display-4 logistics-color"></i>
+                    </div>
+                    <h3 class="h4 mb-3 logistics-color">Logística</h3>
+                    <p class="mb-3">Nuestra operación logística garantiza que recibas tus juegos retro favoritos en perfecto estado y a tiempo.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 logistics-color"></i>Envíos a todo el país</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 logistics-color"></i>Proceso de compra seguro</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 logistics-color"></i>Garantía de calidad</li>
+                    </ul>
+                    <a href="#" class="btn btn-sm btn-custom mt-3">Ver Opciones de Envío</a>
+                </div>
+            </div>
+            
+            <!-- Marketing -->
+            <div class="col-md-4" id="marketing">
+                <div class="department-card p-4">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-megaphone display-4 marketing-color"></i>
+                    </div>
+                    <h3 class="h4 mb-3 marketing-color">Marketing</h3>
+                    <p class="mb-3">Conectamos con nuestra comunidad a través de contenido auténtico que celebra la nostalgia de los videojuegos retro.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 marketing-color"></i>Eventos exclusivos</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 marketing-color"></i>Contenido diario en redes</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 marketing-color"></i>Comunidad activa</li>
+                    </ul>
+                    <a href="#" class="btn btn-sm btn-custom mt-3">Síguenos en Redes</a>
+                </div>
+            </div>
+            
+            <!-- Producción -->
+            <div class="col-md-4" id="production">
+                <div class="department-card p-4">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-tools display-4 production-color"></i>
+                    </div>
+                    <h3 class="h4 mb-3 production-color">Producción</h3>
+                    <p class="mb-3">Nuestro equipo se especializa en restaurar y conservar videojuegos retro para garantizar su funcionamiento óptimo.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 production-color"></i>Restauraciones expertas</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 production-color"></i>Control de calidad riguroso</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill me-2 production-color"></i>Actualizaciones constantes</li>
+                    </ul>
+                    <a href="#" class="btn btn-sm btn-custom mt-3">Ver Proyectos</a>
+                </div>
+            </div>
+            
+            <!-- Espacio extra para futuras expansiones -->
+            <div class="col-md-4">
+                <div class="department-card p-4 text-center d-flex flex-column justify-content-center">
+                    <i class="bi bi-plus-circle display-4 mb-3 text-muted"></i>
+                    <h3 class="h4 mb-3 text-muted">¿Qué sigue?</h3>
+                    <p class="text-muted">Siempre estamos explorando nuevas áreas para servir mejor a nuestra comunidad de jugadores retro.</p>
+                    <a href="#" class="btn btn-sm btn-outline-light mt-3">Enviar Sugerencias</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>RetroÓptica Games</h5>
+                    <p>Reviviendo la nostalgia, un juego a la vez.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p>info@retrooptica.com<br>+34 912 345 678</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p>&copy; 2023 RetroÓptica Games. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

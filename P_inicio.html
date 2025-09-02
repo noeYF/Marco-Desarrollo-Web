@@ -1,269 +1,703 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=p, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  />
-  <link rel="stylesheet" href="P_Style.css" />
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"
-  ></script>
-  <body>
-    <!-- aqui tenemos lo que es el buscador 
-     1.nombre y logo de empresa 
-     2. buscador (nose para que pero estaba en el figma xd)
-     3. inicio de secion y foto de la persona (si se logra hacer) -->
-    <header class="buscador">
-      <nav class="navbar ">
-        <div class="container-fluid">
-          <img
-            src="img/logo.webp"
-            alt=""
-            class="d-inline-block align-text-top"
-          />
-          <a class="navbar-brand" href="#"> Empresa X </a>
-        </div>
-        <div class="container-fluid-buscar">
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Buscador"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
-        </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Videojuegos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Tu CSS existente */
+        body {
+          margin: 0;
+          padding: 0;
+        }
 
-        <div class="inisiar-cecion">
-          <button class="sesion">Iniciar sesión</button>
-          <button class="user"><i class="biso bi-person-circle"></i></button>
-        </div>
-      </nav>
+        /* 📌 HEADER / NAVEGADOR SUPERIOR */
+        .d-inline-block {
+          width: auto;
+          height: 30px;
+        }
+
+        .buscador .navbar {
+          display: flex;
+          height: 70px;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0px;
+          padding: 0px;
+          background-color: #400106;
+        }
+        .form-control {
+          background-color: #73020C;
+        }
+        .btn-outline-success {
+          background-color: #0c7330;
+          color: black;
+        }
+
+        .container-fluid {
+          display: flex;
+          height: 60px;
+          width: 15%;
+          background-color: #522670;
+          padding: 0px;
+          margin: 0px;
+          margin-left: 10px;
+          border-radius: 20px;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .container-fluid img {
+          margin-left: 10px;
+        }
+
+        .container-fluid-buscar {
+          width: 60%;
+        }
+
+        .inisiar-cecion {
+          display: flex;
+          gap: 40px;
+          margin: 0px;
+          padding: 0px;
+          width: auto;
+        }
+        .navbar-brand{
+          color: white;
+          font-size: 25px;
+        }
+        .user {
+          margin-right: 20px;
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          border: none;
+        }
+
+        .biso {
+          font-size: 50px;
+        }
+
+        .sesion {
+          display: flex;
+          align-items: center;
+          font-size: 20px;
+          background-color: rgb(70, 70, 144);
+          height: 50px;
+          width: auto;
+          margin-top: 5px;
+          border-radius: 10px;
+          border: none;
+          transition: background-color 1s ease,color 1s ease;
+        }
+        .sesion:hover {
+          transform: 3s ease;
+          background-color: rgb(32, 32, 94);
+          cursor: pointer;
+          color: white;
+        }
+
+        /* 📌 CARRUSEL / LOGO */
+        .loga {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #330004;
+          padding-bottom: 20px;
+        }
+
+        #carouselExampleCaptions {
+          width: 80%;
+          margin: auto;
+          margin-top: 20px;
+          height: auto;
+        }
+
+        .d-block {
+          border-radius: 30px;
+          height: 300px;
+        }
+
+        /* 📌 BOTONES PRINCIPALES */
+        .buttones {
+          display: flex;
+          background-color: #400106;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          margin-top: 0px;
+          padding: 20px;
+        }
+
+        .btn {
+          border-radius: 0px;
+        }
+
+        /* 📌 TOP DE JUEGOS (CARDS) */
+        .top-juegos {
+          background-color: #73020C;
+          padding-bottom: 20px;
+        }
+        .top-juegos h1 {
+          text-align: center;
+          padding-top: 20px;
+          color: white;
+          padding-bottom: 15px;
+        }
+        .card-decorar {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 10px;
+          margin-left: 10px;
+        }
+        .card-img-top {
+          height: 350px;
+        }
+        .card {
+          transition: transform 0.5s ease;
+          border: 0px solid black;
+        }
+        .card:hover {
+          transform: translateY(5px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        /* 📌 CATEGORÍAS */
+        .categorias-completo {
+          background-color: #400106;
+        }
+        .categorias-completo h1 {
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          padding-top: 10px;
+          padding-bottom: 10px !important;
+          color:white
+        }
+        .categorias {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+          margin-right: 20px;
+          margin-left: 20px;
+          padding: 20px;
+        }
+
+        .item {
+          border-radius: 20px;
+          height: 40px;
+          width: auto;
+          object-fit: cover;
+          background-color: blue;
+        }
+
+        /* 📌 FOOTER (SECCIÓN PRINCIPAL) */
+        .footer {
+          background-color: #0e0e2c;
+          color: white;
+          text-align: center;
+         padding-top: 30px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          height: 220px;
+        }
+
+        .buy a,
+        .sobre-nosotros a {
+          text-decoration: none;
+          color: white;
+          display: block;
+        }
+
+        .buy a:hover,
+        .sobre-nosotros a:hover {
+          color: aqua;
+        }
+
+        /* 📌 FOOTER - TRUSTPILOT */
+        .trustpilot {
+          background: #0e0e2c;
+          color: white;
+          padding: 15px;
+          width: fit-content;
+          border-radius: 8px;
+          font-family: Arial, sans-serif;
+        }
+
+        .logo {
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+
+        .stars {
+          display: flex;
+          gap: 5px;
+          margin-bottom: 10px;
+        }
+
+        .star {
+          font-size: 24px;
+          color: #ccc; /* estrella vacía */
+        }
+
+        .star.filled {
+          color: #00b67a; /* estrella verde */
+        }
+
+        .score {
+          font-size: 14px;
+          color: #ccc;
+        }
+
+        .bold {
+          font-weight: bold;
+          color: white;
+        }
+        #logo-empresa{
+          height: 70px;
+          width: auto;
+        }
+
+        /* 📌 FOOTER - DERECHOS LEGALES */
+        .derechos-reales {
+          background: #0e0e2c; /* fondo oscuro */
+          color: #aaa; /* texto gris suave */
+          text-align: center;
+          font-size: 14px;
+          padding: 20px;
+        }
+
+        .derechos-reales a {
+          color: #fff; /* enlaces en blanco */
+          text-decoration: none;
+        }
+
+        .derechos-reales a:hover {
+          text-decoration: underline;
+        }
+
+        /* Estilos para los modales de login/register */
+        .modal-header {
+            background-color: #400106;
+            color: white;
+        }
+        
+        .modal-content {
+            border: 2px solid #73020C;
+        }
+        
+        .btn-modal {
+            background-color: #D90467;
+            border-color: #D90467;
+            color: white;
+        }
+        
+        .btn-modal:hover {
+            background-color: #73020C;
+            border-color: #73020C;
+        }
+        
+        .modal-link {
+            color: #05C7F2;
+            cursor: pointer;
+        }
+        
+        .modal-link:hover {
+            color: #05DBF2;
+            text-decoration: underline;
+        }
+        
+        .form-control:focus {
+            border-color: #05C7F2;
+            box-shadow: 0 0 0 0.25rem rgba(5, 199, 242, 0.25);
+        }
+        
+        .user-logged {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-right: 15px;
+        }
+        
+        .user-icon {
+            font-size: 24px;
+            margin-right: 8px;
+            color: #05DBF2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar con botones de login -->
+    <header class="buscador">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <img src="img/logo.webp" alt="" class="d-inline-block align-text-top" width="40" height="40">
+                <a class="navbar-brand" href="#">Empresa X</a>
+            </div>
+            <div class="container-fluid-buscar">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscador" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="inisiar-cecion">
+                <div id="userInfo" class="user-logged" style="display: none;">
+                    <i class="bi bi-person-circle user-icon"></i>
+                    <span id="userName"></span>
+                </div>
+                <button class="sesion" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</button>
+                <button class="user" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="biso bi-person-circle"></i></button>
+            </div>
+        </nav>
     </header>
-    <!-- aqui tenemos :
-     1.Carusel
-     2.Botones para que se lleva a otros sitios -->
+
+    <!-- Resto del contenido de la página -->
     <section class="loga">
-      <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/img1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/img1.jpg" class="d-block w-100" alt="..." />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="img/img2.jpg" class="d-block w-100" alt="..." />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="img/img3.jpg" class="d-block w-100" alt="..." />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
-            </div>
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
     </section>
+    
     <section class="buttones">
-      <button type="button" class="btn btn-primary">Play station</button>
-      <button type="button" class="btn btn-success">Xbox</button>
-      <button type="button" class="btn btn-danger" onclick="window.location.href='nintendo.html'">Nintento</button>
+        <button type="button" class="btn btn-primary">Play station</button>
+        <button type="button" class="btn btn-success" onclick="window.location.href='Xbox.html'">Xbox</button>
+        <button type="button" class="btn btn-danger" onclick="window.location.href='nintendo.html'">Nintento</button>
     </section>
-    <!-- aqui tenemos :
-     1.top de juegos (con sus respectivas cartas)
-     2.categorias (con sus respectivas imagenes)
-  -->
+    
     <section class="top-juegos">
-      <h1>top de juegos</h1>
-      <section class="card-decorar">
-        <div class="card" style="width: 18rem">
-          <img src="img/card1.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card’s content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="img/card2.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card’s content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="img/card3.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card’s content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="img/card4.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card’s content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem">
-          <img src="img/card5.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card’s content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </section>
+        <h1 class="text-center">Top de juegos</h1>
+        <section class="card-decorar">
+            <div class="card" style="width: 18rem;">
+                <img src="img/card1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/card2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/card3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/card4.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/card5.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </section>
     </section>
-    <section class="categorias-completo">
-      <h1>Categorias</h1>
-      <div class="categorias">
-        <a href="" class="item"></a><a href="" class="item"></a
-        ><a href="" class="item"></a><a href="" class="item"></a
-        ><a href="" class="item"></a><a href="" class="item"></a
-        ><a href="" class="item"></a><a href="" class="item"></a>
-      </div>
+    
+    <section class="categorias-completo container">
+        <h1 class="text-center">Categorias</h1>
+        <div class="categorias">
+            <a href="" class="item"></a><a href="" class="item"></a>
+            <a href="" class="item"></a><a href="" class="item"></a>
+            <a href="" class="item"></a><a href="" class="item"></a>
+            <a href="" class="item"></a><a href="" class="item"></a>
+        </div>
     </section>
-    <!-- aqui tenemos el footer:
-     1.mas sobre la empresa
-     2.derechos legales -->
+    
     <footer class="footer">
-      <div class="sobre-nosotros">
-        <h1>Abaut Eneba</h1>
-        <br />
-        <a href="">Sobre Nosotros</a><br />
-        <a href="">Contactanos</a><br />
-        <a href="">Carreras</a>
-      </div>
-      <div class="buy">
-        <h1>Buy</h1>
-        <br />
-        <a href="">Como Comprar</a><br />
-        <a href="">Colecciona Enabe</a>
-      </div>
-      <div class="estrellas">
-        <div class="trustpilot">
-          <div class="logo">⭐ Trustpilot</div>
-          <div class="stars">
-            <span class="star filled">★</span>
-            <span class="star filled">★</span>
-            <span class="star filled">★</span>
-            <span class="star filled">★</span>
-            <span class="star">★</span>
-          </div>
-          <div class="score">
-            TrustScore <span class="bold">4.2</span> |
-            <span class="bold">234,828</span> reviews
-          </div>
+        <div class="sobre-nosotros">
+            <h1>About Eneba</h1>
+            <br>
+            <a href="">Sobre Nosotros</a><br>
+            <a href="">Contactanos</a><br>
+            <a href="">Carreras</a>
         </div>
-      </div>
-      <div class="logo">
-        <img id="logo-empresa" src="img/logo.webp" alt="" />
-        <div class="medios-sociales">
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-twitter"></i>
-          <i class="bi bi-instagram"></i>
-          <i class="bi bi-youtube"></i>
-          <i class="bi bi-discord"></i>
+        <div class="buy">
+            <h1>Buy</h1>
+            <br>
+            <a href="">Como Comprar</a><br>
+            <a href="">Colecciona Enabe</a>
         </div>
-      </div>
+        <div class="estrellas">
+            <div class="trustpilot">
+                <div class="logo">⭐ Trustpilot</div>
+                <div class="stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                </div>
+                <div class="score">
+                    TrustScore <span class="bold">4.2</span> |
+                    <span class="bold">234,828</span> reviews
+                </div>
+            </div>
+        </div>
+        <div class="logo">
+            <img id="logo-empresa" src="img/logo.webp" alt="" width="60">
+            <div class="medios-sociales">
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-youtube"></i>
+                <i class="bi bi-discord"></i>
+            </div>
+        </div>
     </footer>
+    
     <footer class="derechos-reales">
-      <hr />
-      <p>
-        Copyright © 2025 <strong>Eneba</strong>. All Rights Reserved. <br />
-        JSC “Helis play”, Gyneju St. 4-333, Vilnius, the Republic of Lithuania
-      </p>
-      <p>
-        <a href="#">Terms and Conditions</a> | <a href="#">Privacy notice</a> |
-        <a href="#">Cookie preferences</a>
-      </p>
+        <hr>
+        <p>
+            Copyright © 2025 <strong>Eneba</strong>. All Rights Reserved. <br>
+            JSC "Helis play", Gyneju St. 4-333, Vilnius, the Republic of Lithuania
+        </p>
+        <p>
+            <a href="#">Terms and Conditions</a> | <a href="#">Privacy notice</a> | <a href="#">Cookie preferences</a>
+        </p>
     </footer>
-  </body>
+
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="correoLogin" class="form-label">Correo Electrónico:</label>
+                            <input type="email" class="form-control" id="correoLogin" name="correo" placeholder="Tu correo registrado" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordLogin" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="passwordLogin" name="password" placeholder="Tu contraseña" required>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="modal-link" data-bs-target="#registerModal" data-bs-toggle="modal" data-bs-dismiss="modal">¿No tienes cuenta? Regístrate aquí</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-modal" id="loginSubmit">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Formulario de Registro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo Electrónico:</label>
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="ejemplo@dominio.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Mínimo 8 caracteres" required minlength="8">
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="modal-link" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal">¿Ya tienes cuenta?</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-modal" id="registerSubmit">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar si hay un usuario logueado
+            checkLoggedInUser();
+            
+            // Función para login
+            document.getElementById('loginSubmit').addEventListener('click', function() {
+                let correoLogin = document.getElementById('correoLogin').value.trim();
+                let passwordLogin = document.getElementById('passwordLogin').value.trim();
+
+                let usuarios = JSON.parse(localStorage.getItem('usuariosRegistrados')) || [];
+
+                let usuarioEncontrado = usuarios.find(user =>
+                    user.correo === correoLogin && user.password === passwordLogin
+                );
+
+                if(usuarioEncontrado){
+                    localStorage.setItem('usuarioActual', JSON.stringify({
+                        nombre: usuarioEncontrado.nombre,
+                        correo: usuarioEncontrado.correo
+                    }));
+                    alert(`¡Bienvenido, ${usuarioEncontrado.nombre}!`);
+                    // Cerrar el modal
+                    var loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                    loginModal.hide();
+                    // Actualizar la interfaz
+                    checkLoggedInUser();
+                } else {
+                    alert('Correo o contraseña incorrectos');
+                }
+            });
+
+            // Función para registro
+            document.getElementById('registerSubmit').addEventListener('click', function() {
+                let nombre = document.getElementById('nombre').value.trim();
+                let correo = document.getElementById('correo').value.trim();
+                let password = document.getElementById('password').value.trim();
+
+                if(!nombre || !correo || !password){
+                    alert('Complete todos los campos');
+                    return;
+                }
+
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(!emailRegex.test(correo)){
+                    alert('Introduzca un correo electrónico válido');
+                    return;
+                }
+
+                if(password.length < 8){
+                    alert('La contraseña debe tener como mínimo 8 caracteres');
+                    return;
+                }
+                
+                let usuarios = JSON.parse(localStorage.getItem('usuariosRegistrados')) || [];
+
+                const correoExistente = usuarios.some(user => user.correo === correo);
+                if(correoExistente){
+                    alert('Este correo electrónico ya está registrado. Por favor, usa otro.');
+                    return;
+                }
+
+                let nuevoUsuario = {
+                    nombre: nombre,
+                    correo: correo,
+                    password: password
+                };
+
+                usuarios.push(nuevoUsuario);
+                localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
+                alert(`¡Registro exitoso para ${nombre}!`);
+                
+                // Cerrar el modal
+                var registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+                registerModal.hide();
+                
+                // Abrir el modal de login
+                var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                loginModal.show();
+                
+                // Rellenar automáticamente el correo
+                document.getElementById('correoLogin').value = correo;
+            });
+
+            // Función para verificar si hay un usuario logueado
+            function checkLoggedInUser() {
+                const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+                const userInfo = document.getElementById('userInfo');
+                const userName = document.getElementById('userName');
+                const loginButton = document.querySelector('.sesion');
+                
+                if (usuarioActual) {
+                    userInfo.style.display = 'flex';
+                    userName.textContent = usuarioActual.nombre;
+                    loginButton.textContent = 'Cerrar sesión';
+                    loginButton.onclick = function() {
+                        localStorage.removeItem('usuarioActual');
+                        alert('Sesión cerrada correctamente');
+                        userInfo.style.display = 'none';
+                        loginButton.textContent = 'Iniciar sesión';
+                        loginButton.onclick = function() {
+                            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                            loginModal.show();
+                        };
+                    };
+                } else {
+                    userInfo.style.display = 'none';
+                    loginButton.textContent = 'Iniciar sesión';
+                    loginButton.onclick = function() {
+                        var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                        loginModal.show();
+                    };
+                }
+            }
+        });
+    </script>
+</body>
 </html>

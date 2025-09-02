@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Nintendo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+        .navbar {
+            background-color: #bd282df7 !important;
+        }
+        .btn-primary {
+            background-color: #D90467;
+            border-color: #D90467;
+        }
+        .btn-primary:hover {
+            background-color: #73020C;
+            border-color: #73020C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-controller me-2"></i>NINTENDO
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Juegos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="carrito.html">Carrito</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="carrito.html" class="btn btn-outline-light position-relative">
+                        <i class="bi bi-cart3"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Carrito de Compras</h1>
+        
+        <div class="row">
+            <!-- Lista de Juegos -->
+            <div class="col-md-8">
+                <h2 class="mb-4">Juegos Disponibles</h2>
+                <div class="row" id="games-container">
+                    <!-- Los juegos se cargarán dinámicamente -->
+                </div>
+            </div>
+            
+            <!-- Carrito -->
+            <div class="col-md-4">
+                <div class="card sticky-top" style="top: 20px;">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Tu Carrito</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="cart-items">
+                            <p class="text-muted text-center" id="empty-cart-message">Tu carrito está vacío</p>
+                            <!-- Los items del carrito se agregarán aquí -->
+                        </div>
+                        <div class="d-none" id="cart-summary">
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <strong>Total:</strong>
+                                <span id="cart-total">$0.00</span>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+                                Finalizar Compra
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Compra -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Confirmar Compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que deseas completar tu compra?</p>
+                    <div id="checkout-summary">
+                        <!-- Resumen de compra -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirm-purchase">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Compra Exitosa -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">¡Compra Exitosa!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                        <p class="mt-3">Tu compra se ha realizado con éxito. ¡Disfruta de tus juegos!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Datos de juegos de Nintendo
+        const nintendoGames = [
+            { id: 1, name: "Minecraft", price: 59.99, image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.jpg" },
+            { id: 2, name: "Super Godzilla", price: 49.99, image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2c8a.jpg" },
+            { id: 3, name: "Dougins Dragons", price: 54.99, image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4bci.jpg" },
+            { id: 4, name: "Winterlore 2", price: 49.99, image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4bce.jpg" },
+            { id: 5, name: "Super Space Alien Ultimate", price: 59.99, image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3j8r.jpg" },
+            { id: 6, name: "Sean of Fortune", price: 49.99, image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2r9f.jpg" }
+        ];
+
+        // Carrito
+        let cart = JSON.parse(localStorage.getItem('nintendoCart')) || [];
+        
+        // Elementos del DOM
+        const gamesContainer = document.getElementById('games-container');
+        const cartItems = document.getElementById('cart-items');
+        const cartSummary = document.getElementById('cart-summary');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const cartTotal = document.getElementById('cart-total');
+        const cartCount = document.getElementById('cart-count');
+        const checkoutSummary = document.getElementById('checkout-summary');
+        
+        // Inicializar la página
+        function initPage() {
+            renderGames();
+            updateCart();
+        }
+        
+        // Renderizar juegos
+        function renderGames() {
+            gamesContainer.innerHTML = '';
+            
+            nintendoGames.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'col-md-6 mb-4';
+                gameCard.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${game.image}" class="card-img-top" alt="${game.name}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">${game.name}</h5>
+                            <p class="card-text">$${game.price.toFixed(2)}</p>
+                            <button class="btn btn-primary add-to-cart" data-id="${game.id}">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                `;
+                gamesContainer.appendChild(gameCard);
+            });
+            
+            // Agregar event listeners a los botones
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const gameId = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(gameId);
+                });
+            });
+        }
+        
+        // Agregar juego al carrito
+        function addToCart(gameId) {
+            const game = nintendoGames.find(g => g.id === gameId);
+            const existingItem = cart.find(item => item.id === gameId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: game.id,
+                    name: game.name,
+                    price: game.price,
+                    image: game.image,
+                    quantity: 1
+                });
+            }
+            
+            // Guardar en localStorage
+            localStorage.setItem('nintendoCart', JSON.stringify(cart));
+            
+            // Actualizar interfaz
+            updateCart();
+            
+            // Mostrar notificación
+            showNotification(`${game.name} agregado al carrito`);
+        }
+        
+        // Eliminar juego del carrito
+        function removeFromCart(gameId) {
+            cart = cart.filter(item => item.id !== gameId);
+            localStorage.setItem('nintendoCart', JSON.stringify(cart));
+            updateCart();
+        }
+        
+        // Actualizar cantidad
+        function updateQuantity(gameId, newQuantity) {
+            const item = cart.find(item => item.id === gameId);
+            if (item) {
+                item.quantity = newQuantity;
+                if (item.quantity <= 0) {
+                    removeFromCart(gameId);
+                } else {
+                    localStorage.setItem('nintendoCart', JSON.stringify(cart));
+                    updateCart();
+                }
+            }
+        }
+        
+        // Actualizar interfaz del carrito
+        function updateCart() {
+            cartItems.innerHTML = '';
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('d-none');
+                cartSummary.classList.add('d-none');
+            } else {
+                emptyCartMessage.classList.add('d-none');
+                cartSummary.classList.remove('d-none');
+                
+                let total = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'd-flex justify-content-between align-items-center mb-3';
+                    cartItem.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <img src="${item.image}" class="cart-item-img me-3" alt="${item.name}">
+                            <div>
+                                <h6 class="mb-0">${item.name}</h6>
+                                <small>$${item.price.toFixed(2)} c/u</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="input-group me-2" style="width: 100px;">
+                                <button class="btn btn-outline-secondary minus-btn" type="button" data-id="${item.id}">-</button>
+                                <input type="number" class="form-control text-center quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                                <button class="btn btn-outline-secondary plus-btn" type="button" data-id="${item.id}">+</button>
+                            </div>
+                            <button class="btn btn-danger btn-sm remove-btn" data-id="${item.id}">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+                
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+                
+                // Agregar event listeners a los botones del carrito
+                document.querySelectorAll('.minus-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const id = parseInt(e.target.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        if (item) updateQuantity(id, item.quantity - 1);
+                    });
+                });
+                
+                document.querySelectorAll('.plus-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const id = parseInt(e.target.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        if (item) updateQuantity(id, item.quantity + 1);
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-input').forEach(input => {
+                    input.addEventListener('change', (e) => {
+                        const id = parseInt(e.target.getAttribute('data-id'));
+                        const newQuantity = parseInt(e.target.value);
+                        if (!isNaN(newQuantity) && newQuantity > 0) {
+                            updateQuantity(id, newQuantity);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const id = parseInt(e.target.closest('.remove-btn').getAttribute('data-id'));
+                        removeFromCart(id);
+                    });
+                });
+            }
+        }
+        
+        // Mostrar notificación
+        function showNotification(message) {
+            // Crear elemento de notificación
+            const notification = document.createElement('div');
+            notification.className = 'position-fixed bottom-0 end-0 m-3 alert alert-success alert-dismissible fade show';
+            notification.style.zIndex = '1050';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Eliminar después de 3 segundos
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 3000);
+        }
+        
+        // Configurar modal de confirmación
+        const checkoutModal = document.getElementById('checkoutModal');
+        checkoutModal.addEventListener('show.bs.modal', () => {
+            let summaryHTML = '<ul class="list-group mb-3">';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                summaryHTML += `
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>${item.name} x${item.quantity}</span>
+                        <span>$${itemTotal.toFixed(2)}</span>
+                    </li>
+                `;
+            });
+            
+            summaryHTML += `
+                </ul>
+                <div class="d-flex justify-content-between fw-bold fs-5">
+                    <span>Total:</span>
+                    <span>$${total.toFixed(2)}</span>
+                </div>
+            `;
+            
+            checkoutSummary.innerHTML = summaryHTML;
+        });
+        
+        // Confirmar compra
+        document.getElementById('confirm-purchase').addEventListener('click', () => {
+            // Cerrar modal de confirmación
+            const modal = bootstrap.Modal.getInstance(checkoutModal);
+            modal.hide();
+            
+            // Vaciar carrito
+            cart = [];
+            localStorage.removeItem('nintendoCart');
+            updateCart();
+            
+            // Mostrar modal de éxito
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        });
+        
+        // Inicializar la página
+        initPage();
+    </script>
+</body>
+</html>
