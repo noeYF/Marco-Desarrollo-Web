@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #121212;
+            color: #e4e4e4;
+        }
+
+        .admin-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .card-option {
+            background: #1f1f1f;
+            border: none;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            color: white;
+            transition: transform .2s ease, box-shadow .2s ease;
+            cursor: pointer;
+        }
+
+        .card-option:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .card-option i {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .card-option h5 {
+            margin-top: 10px;
+            font-size: 1.3rem;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: #9ecbff;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <h2 class="admin-title">
+        👑 Panel de Administración
+    </h2>
+
+    <div class="row g-4">
+
+        <!-- Usuarios -->
+        <div class="col-md-4">
+            <a href="/admin/users" class="text-decoration-none">
+                <div class="card-option">
+                    <i class="bi bi-people-fill text-info"></i>
+                    <h5>Gestión de Usuarios</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Tareas -->
+        <div class="col-md-4">
+            <a href="/admin/tasks" class="text-decoration-none">
+                <div class="card-option">
+                    <i class="bi bi-card-checklist text-warning"></i>
+                    <h5>Gestión de Tareas</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Productos -->
+        <div class="col-md-4">
+            <a href="/admin/products" class="text-decoration-none">
+                <div class="card-option">
+                    <i class="bi bi-box-seam text-success"></i>
+                    <h5>Gestión de Productos</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Categorías -->
+        <div class="col-md-4">
+            <a href="/admin/categories" class="text-decoration-none">
+                <div class="card-option">
+                    <i class="bi bi-tags-fill text-primary"></i>
+                    <h5>Gestión de Categorías</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Órdenes -->
+        <div class="col-md-4">
+            <a href="/admin/orders" class="text-decoration-none">
+                <div class="card-option">
+                    <i class="bi bi-receipt-cutoff text-light"></i>
+                    <h5>Gestión de Órdenes</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Volver -->
+        <div class="col-md-4">
+            <a href="/tasks" class="text-decoration-none">
+                <div class="card-option">
+                    <i class="bi bi-arrow-left-circle text-danger"></i>
+                    <h5>Volver a Tasks</h5>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="back-link">
+        <a href="/logout"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
+    </div>
+
+</div>
+
+</body>
+</html>

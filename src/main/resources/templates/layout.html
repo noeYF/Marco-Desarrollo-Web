@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Sistema</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">VisionGeek Task</a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item" th:if="${#authentication.principal != null}">
+                    <a class="nav-link text-white" href="/tasks">Tareas</a>
+                </li>
+
+                <li class="nav-item" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                    <a class="nav-link text-warning" href="/admin">Admin</a>
+                </li>
+
+                <li class="nav-item" th:if="${#authentication.principal == null}">
+                    <a class="nav-link text-white" href="/login">Login</a>
+                </li>
+
+                <li class="nav-item" th:if="${#authentication.principal != null}">
+                    <a class="nav-link text-danger" href="/logout">Logout</a>
+                </li>
+
+                
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div th:insert="${view}"></div>
+</div>
+
+</body>
+</html>

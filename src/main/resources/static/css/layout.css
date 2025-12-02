@@ -1,0 +1,40 @@
+.layout-body {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    color: #e4e4e4;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* NAVBAR */
+.vg-navbar {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #222831;
+}
+
+.navbar-brand {
+    color: #00d4ff !important;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    color: #e4e4e4 !important;
+    margin-left: 15px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00d4ff !important;
+    transform: translateY(-2px);
+}
+
+.page-content {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}

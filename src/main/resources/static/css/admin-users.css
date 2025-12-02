@@ -1,0 +1,78 @@
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    font-family: "Segoe UI", sans-serif;
+    color: #e4e4e4;
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #00d4ff;
+    text-shadow: 0 0 8px #00d4ff;
+    margin-bottom: 30px;
+}
+
+/* Tabla */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+}
+
+.table thead {
+    background: rgba(0, 212, 255, 0.15);
+}
+
+.table thead th {
+    color: #00d4ff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+    background: rgba(0, 212, 255, 0.10);
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+/* Botones */
+.btn-primary {
+    background: #00a3ff;
+    border: none;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background: #0089d6;
+}
+
+.btn-danger {
+    background: #ff4b4b;
+    border: none;
+    font-weight: bold;
+}
+.btn-danger:hover {
+    background: #ff6b6b;
+}
+
+.btn-secondary {
+    background: #495057;
+    border: none;
+    font-weight: bold;
+}
+.btn-secondary:hover {
+    background: #6c757d;
+}
+
+/* Contenedor */
+.container {
+    background: rgba(22, 27, 34, 0.6);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+    backdrop-filter: blur(8px);
+    max-width: 900px;
+}

@@ -1,0 +1,87 @@
+/* Fondo general */
+.products-body {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    color: #e4e4e4;
+    min-height: 100vh;
+}
+
+/* Título */
+.title {
+    color: #00d4ff;
+    font-weight: 700;
+}
+
+/* Tarjeta de producto */
+.product-card {
+    background: #161b22;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: 0.3s ease;
+    border: 1px solid #222831;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.6);
+}
+
+/* Imagen */
+.product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #0f1115;
+    padding: 10px;
+}
+
+/* Nombre */
+.product-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Descripción */
+.product-desc {
+    font-size: 14px;
+    color: #b0b0b0;
+    min-height: 50px;
+}
+
+/* Precios y stock */
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.price {
+    font-size: 18px;
+    color: #ff4b91;
+    font-weight: bold;
+}
+
+.stock {
+    font-size: 14px;
+    color: #00eaff;
+}
+
+/* Botón */
+.btn-add {
+    background: #ff4b91;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.btn-add:hover {
+    background: #ff6fa8;
+    transform: translateY(-2px);
+}

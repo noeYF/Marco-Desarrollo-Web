@@ -1,0 +1,95 @@
+/* Fondo general */
+body.bg-dark {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    font-family: "Segoe UI", sans-serif;
+    color: #e4e4e4;
+}
+
+/* Título */
+h2 {
+    font-weight: bold;
+    color: #00d4ff;
+    text-shadow: 0 0 10px #00d4ff;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Tabla */
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table thead tr {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.table tbody tr {
+    transition: 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(0, 212, 255, 0.1);
+    transform: scale(1.01);
+}
+
+/* Botones */
+.btn-primary {
+    background: #00d4ff;
+    border: none;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background: #0bc9e3;
+}
+
+.btn-success {
+    background: #4dd17f;
+    font-weight: bold;
+}
+.btn-success:hover {
+    background: #69e19a;
+}
+
+.btn-danger {
+    background: #ff4b4b;
+    border: none;
+    font-weight: bold;
+}
+.btn-danger:hover {
+    background: #ff6b6b;
+}
+
+.btn-outline-danger {
+    border-color: #ff4b4b;
+    color: #ff4b4b;
+    font-weight: bold;
+}
+.btn-outline-danger:hover {
+    background: #ff4b4b;
+    color: white;
+}
+
+/* Tarjeta de alerta */
+.alert-warning {
+    background: rgba(255, 193, 7, 0.15);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    color: #ffc107;
+    border-radius: 10px;
+}
+
+/* Total */
+h3 {
+    color: #4dd17f;
+    font-weight: bold;
+    text-shadow: 0 0 8px #4dd17f;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

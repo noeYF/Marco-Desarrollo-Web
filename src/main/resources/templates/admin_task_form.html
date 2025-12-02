@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Tarea</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-task-edit.css}">
+</head>
+
+<body>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Editar Tarea</h2>
+
+    <form th:action="@{/admin/tasks/update}" method="post" th:object="${task}">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="mb-3">
+            <label>Título</label>
+            <input type="text" class="form-control" th:field="*{title}">
+        </div>
+
+        <div class="mb-3">
+            <label>Descripción</label>
+            <textarea class="form-control" th:field="*{description}"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Fecha Límite</label>
+            <input type="date" class="form-control" th:field="*{dueDate}">
+        </div>
+
+        <div class="mb-3">
+            <label>Prioridad</label>
+            <select class="form-control" th:field="*{priority}">
+                <option>ALTA</option>
+                <option>MEDIA</option>
+                <option>BAJA</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Estado</label>
+            <select class="form-control" th:field="*{status}">
+                <option>PENDIENTE</option>
+                <option>EN_PROGRESO</option>
+                <option>COMPLETADA</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary">Guardar Cambios</button>
+        <a href="/admin/tasks" class="btn btn-secondary">Volver</a>
+    </form>
+
+</div>
+
+</body>
+</html>

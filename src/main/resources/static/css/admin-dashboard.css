@@ -1,0 +1,60 @@
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    font-family: "Segoe UI", sans-serif;
+    color: #e4e4e4;
+}
+
+/* Tarjeta principal */
+.admin-card {
+    background: rgba(22, 27, 34, 0.9);
+    border-radius: 20px;
+    width: 420px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .45);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.4s ease;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Título */
+h2 {
+    color: #00d4ff;
+    font-weight: bold;
+    text-shadow: 0 0 8px #00d4ff;
+}
+
+/* Botones */
+.btn-panel {
+    background: #00d4ff;
+    color: #0d1117;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.btn-panel:hover {
+    background: #0bc9e3;
+    transform: translateY(-3px);
+}
+
+.btn-panel-secondary {
+    background: #ff4b91;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.btn-panel-secondary:hover {
+    background: #ff6fa9;
+    transform: translateY(-3px);
+}

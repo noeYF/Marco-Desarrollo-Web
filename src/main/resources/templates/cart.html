@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Carrito</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+</head>
+
+
+<body class="bg-dark text-light">
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">🛒 Mi Carrito</h2>
+
+    <!-- Si no hay productos -->
+    <div th:if="${items.size() == 0}">
+        <div class="alert alert-warning text-center">
+            Tu carrito está vacío 
+        </div>
+        <div class="text-center">
+            <a href="/products" class="btn btn-primary">Ver Productos</a>
+        </div>
+    </div>
+
+    <!-- Tabla del carrito -->
+    <div th:if="${items.size() > 0}">
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.product.name}"></td>
+                <td th:text="${item.product.price}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${item.product.price * item.quantity}"></td>
+
+                <td>
+                    <form th:action="@{'/cart/remove/' + ${item.id}}" method="post">
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3 class="text-end">Total: <span th:text="${total}"></span> USD</h3>
+
+        <div class="d-flex justify-content-between mt-4">
+
+            <form action="/cart/clear" method="post">
+                <button class="btn btn-outline-danger">Vaciar Carrito</button>
+            </form>
+
+            <a href="/orders/checkout" class="btn btn-success">
+                Proceder al Pago
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

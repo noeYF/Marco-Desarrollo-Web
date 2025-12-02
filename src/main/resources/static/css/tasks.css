@@ -1,0 +1,100 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.tasks-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+/* ===== HEADER ===== */
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.tasks-header h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.btn-add {
+    padding: 10px 18px;
+    background: #28a745;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-add:hover {
+    background: #34d058;
+    transform: translateY(-2px);
+}
+
+/* ===== TABLA ===== */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-custom thead {
+    background: #111;
+}
+
+.table-custom th {
+    padding: 14px;
+    color: #00eaff;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #222;
+}
+
+.table-custom td {
+    padding: 14px;
+    color: #fafafa;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.table-custom tr:hover td {
+    background: #2d2d2d;
+    transition: 0.25s;
+}
+
+/* ===== BOTONES ===== */
+.actions a {
+    margin-right: 10px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-edit {
+    background: #ffc107;
+    color: #222;
+}
+
+.btn-edit:hover {
+    background: #ffe082;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background: #ff6b81;
+}

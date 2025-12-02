@@ -1,0 +1,69 @@
+/* Fondo general PRO */
+body {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    color: #e4e4e4;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Tarjeta principal */
+.category-card {
+    background: rgba(22, 27, 34, 0.85);
+    padding: 35px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(0, 212, 255, 0.28);
+}
+
+/* Inputs */
+.input-pro {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    color: #e4e4e4;
+    border-radius: 10px;
+}
+
+.input-pro:focus {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 8px #00d4ff;
+    border-color: #00d4ff;
+    color: #fff;
+}
+
+/* Botón principal */
+.btn-submit {
+    background: #00d4ff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: #0d1117;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #0bc9e3;
+    transform: translateY(-3px);
+}
+
+/* Botón volver */
+.btn-back {
+    background: transparent;
+    padding: 8px 0;
+    border-radius: 10px;
+    color: #a4b1c1;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-back:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 10px #00d4ff;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrar Categorías</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-categories.css}">
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <h2 class="text-center title-pro mb-4">🗂️ Administración de Categorías</h2>
+
+    <!-- Botones superiores -->
+    <div class="d-flex justify-content-end mb-3 gap-2">
+        <a class="btn-new" href="/admin/categories/new">+ Nueva Categoría</a>
+        <a class="btn-back" href="/tasks">← Volver</a>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+        <table class="table table-dark table-striped table-hover rounded-4 overflow-hidden">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="c : ${categories}">
+                    <td th:text="${c.id}"></td>
+                    <td th:text="${c.name}"></td>
+
+                    <td class="text-center">
+                        <a th:href="@{/admin/categories/edit/{id}(id=${c.id})}"
+                           class="btn-edit">✏️ Editar</a>
+
+                        <a th:href="@{/admin/categories/delete/{id}(id=${c.id})}"
+                           class="btn-delete">🗑️ Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

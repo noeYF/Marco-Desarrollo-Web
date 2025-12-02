@@ -1,0 +1,83 @@
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    color: #e4e4e4;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Encabezado */
+.admin-header h2 {
+    color: #00d4ff;
+    font-weight: bold;
+    text-shadow: 0 0 8px #00d4ff;
+}
+
+/* Contenedor tabla */
+.table-container {
+    background: rgba(22, 27, 34, 0.85);
+    border-radius: 18px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Cabecera tabla */
+.table-header {
+    background: #11161d;
+    font-weight: bold;
+    color: #00d4ff;
+}
+
+/* Botones */
+.btn-new {
+    background: #00d4ff;
+    color: #0d1117;
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: .3s;
+    text-decoration: none;
+}
+
+.btn-new:hover {
+    background: #0bc9e3;
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    background: #ff4b91;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: .3s;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    background: #ff6fa8;
+    transform: translateY(-2px);
+}
+
+.btn-edit {
+    background: #007bff;
+    border: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-edit:hover {
+    background: #339dff;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: #ff3c3c;
+    border: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-delete:hover {
+    background: #ff5757;
+    transform: translateY(-2px);
+}

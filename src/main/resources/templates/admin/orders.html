@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Órdenes</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <style>
+        body { background: #0d1117; color: #e4e4e4; }
+        .order-card {
+            background: rgba(22, 27, 34, .8);
+            border-radius: 20px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .order-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">📦 Mis Órdenes</h2>
+
+    <div th:each="order : ${orders}" class="order-card mb-3">
+
+        <h4>ID Orden: <span th:text="${order.id}"></span></h4>
+        <p>Fecha: <span th:text="${order.createdAt}"></span></p>
+        <p>Total: S/ <span th:text="${order.total}"></span></p>
+
+        <a th:href="@{'/orders/' + ${order.id}}"
+           class="btn btn-info">Ver detalles</a>
+    </div>
+
+</div>
+
+</body>
+</html>

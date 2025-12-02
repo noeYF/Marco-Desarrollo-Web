@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body class="bg-dark text-light">
+
+<div class="container mt-5" style="max-width: 600px;">
+
+    <h2 class="text-center mb-4">Tarea</h2>
+
+    <form th:action="@{/tasks/save}" th:object="${task}" method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <!-- Título -->
+        <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input th:field="*{title}" class="form-control" required>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <textarea th:field="*{description}" class="form-control"></textarea>
+        </div>
+
+        <!-- Fecha límite -->
+        <div class="mb-3">
+            <label class="form-label">Fecha límite</label>
+            <input type="date" th:field="*{dueDate}" class="form-control">
+        </div>
+
+        <!-- PRIORIDAD -->
+        <div class="mb-3">
+            <label class="form-label">Prioridad</label>
+            <select th:field="*{priority}" class="form-control">
+                <option th:value="LOW">Baja</option>
+                <option th:value="MEDIUM">Media</option>
+                <option th:value="HIGH">Alta</option>
+            </select>
+        </div>
+
+        <!-- ESTADO -->
+        <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select th:field="*{status}" class="form-control">
+                <option th:value="PENDING">Pendiente</option>
+                <option th:value="IN_PROGRESS">En progreso</option>
+                <option th:value="COMPLETED">Completada</option>
+            </select>
+        </div>
+
+        <button class="btn btn-success w-100">Guardar</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

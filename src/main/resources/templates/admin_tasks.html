@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-tasks.css}">
+</head>
+
+<body>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Gestión de Tareas</h2>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Estado</th>
+            <th>Due Date</th>
+            <th>Usuario</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="t : ${tasks}">
+            <td th:text="${t.id}"></td>
+            <td th:text="${t.title}"></td>
+            <td th:text="${t.status}"></td>
+            <td th:text="${t.dueDate}"></td>
+            <td th:text="${t.user.username}"></td>
+
+            <td>
+                <a th:href="@{'/admin/tasks/edit/' + ${t.id}}" class="btn btn-sm btn-primary">Editar</a>
+                <a th:href="@{'/admin/tasks/delete/' + ${t.id}}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin" class="btn btn-secondary">Volver</a>
+</div>
+
+</body>
+</html>

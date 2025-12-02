@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrar Productos</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-products.css}">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <div class="admin-header text-center mb-4">
+        <h2>🛠 Administración de Productos</h2>
+    </div>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a class="btn btn-new" href="/admin/products/new">➕ Nuevo Producto</a>
+        <a class="btn btn-back" href="/admin">⬅ Volver</a>
+    </div>
+
+    <div class="table-container p-3 rounded-4 shadow-lg">
+
+        <table class="table table-dark table-hover align-middle">
+            <thead class="table-header">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="p : ${products}">
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.name}"></td>
+                <td>S/ <span th:text="${p.price}"></span></td>
+                <td th:text="${p.category?.name}"></td>
+
+                <td class="text-center">
+                    <a th:href="@{/admin/products/edit/{id}(id=${p.id})}" class="btn btn-edit btn-sm">✏ Editar</a>
+                    <a th:href="@{/admin/products/delete/{id}(id=${p.id})}"
+                       onclick="return confirm('¿Seguro que quieres eliminar este producto?')"
+                       class="btn btn-delete btn-sm">🗑 Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

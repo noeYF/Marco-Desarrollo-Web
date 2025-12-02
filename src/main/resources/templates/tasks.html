@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Tareas</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/tasks.css}">
+</head>
+
+<body class="bg-dark text-light">
+
+<div class="tasks-container">
+
+    <div class="tasks-header">
+        <h2>📋 Mis Tareas</h2>
+        <a href="/tasks/add" class="btn-add">+ Nueva Tarea</a>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="table-custom">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Fecha límite</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.id}"></td>
+                <td th:text="${task.title}"></td>
+                <td th:text="${task.description}"></td>
+                <td th:text="${task.dueDate}"></td>
+
+                <td class="actions">
+                    <a th:href="@{'/tasks/edit/' + ${task.id}}" class="btn-edit">✏ Editar</a>
+                    <a th:href="@{'/tasks/delete/' + ${task.id}}"
+                       onclick="return confirm('¿Seguro?')"
+                       class="btn-delete">🗑 Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

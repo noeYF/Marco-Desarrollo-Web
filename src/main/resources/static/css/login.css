@@ -1,0 +1,72 @@
+/* Fondo general */
+.login-body {
+    background: linear-gradient(135deg, #0d1117, #1b1f24);
+    color: #e4e4e4;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Tarjeta principal */
+.login-card {
+    background: rgba(22, 27, 34, 0.92);
+    border-radius: 22px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .6);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid #222831;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Título */
+.login-title {
+    color: #00d4ff;
+    font-weight: bold;
+}
+
+/* Inputs */
+.login-input {
+    background: #0f141a;
+    border: 1px solid #2a2f36;
+    color: #e4e4e4;
+}
+
+.login-input:focus {
+    background: #161b22;
+    border-color: #00d4ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, .3);
+    color: white;
+}
+
+/* Botón */
+.login-btn {
+    background: #00d4ff;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    color: #0d1117;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #0bc9e3;
+    transform: translateY(-3px);
+}
+
+/* Link */
+.login-link {
+    color: #0bc9e3;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.login-link:hover {
+    color: #00d4ff;
+    text-decoration: underline;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/products.css}">
+</head>
+
+<body class="products-body">
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-5 title">🎮 Productos Disponibles</h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-4" th:each="p : ${products}">
+            <div class="product-card">
+
+                <!-- Imagen -->
+                <img th:src="${p.imageUrl}" class="product-img" alt="Producto">
+
+                <!-- Info -->
+                <h4 class="product-name" th:text="${p.name}"></h4>
+                <p class="product-desc" th:text="${p.description}"></p>
+
+                <div class="product-info">
+                    <span class="price">S/ <span th:text="${p.price}"></span></span>
+                    <span class="stock">Stock: <span th:text="${p.stock}"></span></span>
+                </div>
+
+                <!-- Botón -->
+                <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
+                    <button class="btn-add">🛒 Añadir al carrito</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

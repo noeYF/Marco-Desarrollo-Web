@@ -1,0 +1,72 @@
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #1b1f24, #0d1117);
+    color: #e4e4e4;
+    min-height: 100vh;
+}
+
+/* Wrapper centrado */
+.register-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Tarjeta */
+.register-card {
+    background: rgba(22, 27, 34, 0.92);
+    border-radius: 20px;
+    padding: 40px 35px;
+    width: 380px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.register-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Inputs */
+.form-control {
+    background: #0f1115;
+    border: 1px solid #2b2f36;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form-control:focus {
+    background: #14171c;
+    border-color: #ff5fa8;
+    box-shadow: 0 0 10px #ff5fa855;
+}
+
+/* Botón principal */
+.btn-register {
+    background: #ff4b91;
+    border: none;
+    padding: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    border-radius: 12px;
+    transition: 0.25s;
+}
+
+.btn-register:hover {
+    background: #ff6fa8;
+    transform: translateY(-2px);
+}
+
+/* Enlace */
+.login-link {
+    color: #00d4ff;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.login-link:hover {
+    color: #0bc9e3;
+}

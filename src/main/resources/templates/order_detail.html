@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Pedido</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/order_detail.css}">
+</head>
+
+<body class="order-body">
+
+<div class="container d-flex justify-content-center mt-5">
+
+    <div class="order-card">
+
+        <!-- TÍTULO -->
+        <h2 class="text-center mb-4 title">
+            🛒 Pedido #<span th:text="${order.id}"></span>
+        </h2>
+
+        <!-- INFO DEL PEDIDO -->
+        <div class="order-section">
+            <h4 class="section-title">📦 Información del pedido</h4>
+
+            <p><strong>Fecha:</strong> <span th:text="${order.createdAt}"></span></p>
+            <p><strong>Total:</strong> S/ <span th:text="${order.total}"></span></p>
+        </div>
+
+        <!-- PRODUCTOS -->
+        <h4 class="section-title mt-4">🧾 Productos</h4>
+
+        <table class="table table-dark table-striped mt-3 rounded table-order">
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cant.</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="item : ${order.items}">
+                <td th:text="${item.product.name}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td>S/ <span th:text="${item.product.price}"></span></td>
+                <td>S/ <span th:text="${item.subtotal}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- BOTÓN VOLVER -->
+        <div class="text-center mt-4">
+            <a href="/products" class="btn-back">
+                ← Seguir Comprando
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
